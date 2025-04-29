@@ -53,7 +53,7 @@ export default function SkillsSection() {
   }, [isVisible]);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 relative overflow-hidden" id="skills">
+    <section ref={sectionRef} className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-background to-muted/30" id="skills">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={cn(

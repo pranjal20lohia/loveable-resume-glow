@@ -64,16 +64,16 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				theme: {
-					50: '#e6f9fc',
-					100: '#ccf3f9',
-					200: '#99e7f3',
-					300: '#66dbed',
-					400: '#33cfe7',
-					500: '#00c3e0', // Main theme color (turquoise)
-					600: '#009cb3',
-					700: '#007586',
-					800: '#004e5a',
-					900: '#00272d',
+					50: '#f3efff',
+					100: '#e5dfff',
+					200: '#cbbeff',
+					300: '#b19eff',
+					400: '#a17dff',
+					500: '#9155fd', // Main theme color (purple)
+					600: '#7938ff',
+					700: '#6626ff',
+					800: '#5020d8',
+					900: '#4215af',
 				},
 			},
 			borderRadius: {
@@ -120,10 +120,10 @@ export default {
 				},
 				'glow': {
 					'0%, 100%': { 
-						boxShadow: '0 0 5px rgba(0, 195, 224, 0.5), 0 0 20px rgba(0, 195, 224, 0.2)',
+						boxShadow: '0 0 5px rgba(145, 85, 253, 0.5), 0 0 20px rgba(145, 85, 253, 0.2)',
 					},
 					'50%': { 
-						boxShadow: '0 0 10px rgba(0, 195, 224, 0.8), 0 0 30px rgba(0, 195, 224, 0.4)',
+						boxShadow: '0 0 10px rgba(145, 85, 253, 0.8), 0 0 30px rgba(145, 85, 253, 0.4)',
 					},
 				},
 			},

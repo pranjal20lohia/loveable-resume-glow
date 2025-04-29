@@ -57,14 +57,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-24 bg-secondary/50" id="contact">
+    <section ref={sectionRef} className="py-16 md:py-24 bg-grid" id="contact">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className={cn(
             "text-3xl md:text-4xl font-bold font-display",
             isVisible ? "animate-fade-in" : "opacity-0"
           )}>
-            Get In <span className="text-theme-500">Touch</span>
+            Get In <span className="purple-gradient">Touch</span>
           </h2>
           <div className={cn(
             "h-1 w-20 bg-theme-500 mx-auto mt-4",
@@ -83,7 +83,7 @@ export default function ContactSection() {
             "lg:col-span-1 space-y-6",
             isVisible ? "animate-fade-in-right" : "opacity-0"
           )}>
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 glassmorphism rounded-lg p-4">
               <div className="bg-theme-500/10 p-3 rounded-lg">
                 <Mail className="h-6 w-6 text-theme-500" />
               </div>
@@ -99,7 +99,7 @@ export default function ContactSection() {
               </div>
             </div>
             
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 glassmorphism rounded-lg p-4">
               <div className="bg-theme-500/10 p-3 rounded-lg">
                 <Phone className="h-6 w-6 text-theme-500" />
               </div>
@@ -111,7 +111,7 @@ export default function ContactSection() {
               </div>
             </div>
             
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-4 glassmorphism rounded-lg p-4">
               <div className="bg-theme-500/10 p-3 rounded-lg">
                 <MapPin className="h-6 w-6 text-theme-500" />
               </div>
@@ -125,7 +125,7 @@ export default function ContactSection() {
           </div>
           
           <div className={cn(
-            "lg:col-span-2 bg-background rounded-xl shadow-lg p-6 border",
+            "lg:col-span-2 glassmorphism rounded-xl p-6 shadow-lg border border-theme-500/20",
             isVisible ? "animate-fade-in-left" : "opacity-0"
           )} style={{ animationDelay: '300ms' }}>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -141,6 +141,7 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     required
+                    className="bg-secondary/50 border-theme-500/20 focus:border-theme-500"
                   />
                 </div>
                 <div className="space-y-2">
@@ -155,6 +156,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    className="bg-secondary/50 border-theme-500/20 focus:border-theme-500"
                   />
                 </div>
               </div>
@@ -170,6 +172,7 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   required
+                  className="bg-secondary/50 border-theme-500/20 focus:border-theme-500"
                 />
               </div>
               <Button 
