@@ -15,7 +15,7 @@ const navItems = [
   { label: "About Me", href: "/#about" },
   { label: "Projects", href: "/#projects" },
   { label: "Internship", href: "/#internship" },
-  { label: "Resume", href: "/resume" },
+  { label: "Resume", href: "/#resume" },
 ];
 
 export default function Navbar() {
@@ -34,6 +34,24 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    
+    // For hash links on the same page
+    if (href.startsWith('/#')) {
+      const targetId = href.substring(2);
+      const element = document.getElementById(targetId);
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      window.location.href = href;
+    }
+  };
   
   return (
     <header
@@ -57,9 +75,10 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-1">
           {navItems.map((item) => (
-            <Link
+            <a
               key={item.href}
-              to={item.href}
+              href={item.href}
+              onClick={(e) => handleScroll(e, item.href)}
               className={cn(
                 "hover-lift px-3 py-2 rounded-md text-sm font-medium",
                 (location.pathname === item.href || 
@@ -69,7 +88,7 @@ export default function Navbar() {
               )}
             >
               {item.label}
-            </Link>
+            </a>
           ))}
         </nav>
         
@@ -84,9 +103,10 @@ export default function Navbar() {
             <SheetContent>
               <nav className="flex flex-col gap-4 mt-8">
                 {navItems.map((item) => (
-                  <Link
+                  <a
                     key={item.href}
-                    to={item.href}
+                    href={item.href}
+                    onClick={(e) => handleScroll(e, item.href)}
                     className={cn(
                       "px-3 py-2 rounded-md text-base font-medium hover:bg-muted",
                       (location.pathname === item.href || 
@@ -96,7 +116,7 @@ export default function Navbar() {
                     )}
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 ))}
               </nav>
             </SheetContent>

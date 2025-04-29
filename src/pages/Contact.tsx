@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import ContactSection from "@/components/ContactSection";
-import { cn } from "@/lib/utils";
 
 const Contact = () => {
   const [mounted, setMounted] = useState(false);

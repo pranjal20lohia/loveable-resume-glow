@@ -18,6 +18,25 @@ const Index = () => {
     setTimeout(() => {
       setIsLoading(false);
     }, 1000);
+    
+    // Handle hash navigation after page loads
+    const handleHashNavigation = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            window.scrollTo({
+              top: element.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
+      }
+    };
+    
+    window.addEventListener('load', handleHashNavigation);
+    return () => window.removeEventListener('load', handleHashNavigation);
   }, []);
   
   if (isLoading) {
