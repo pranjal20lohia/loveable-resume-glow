@@ -92,7 +92,6 @@ export default function SkillsSection() {
                 <Progress 
                   value={progressValues[index]} 
                   className="h-2 bg-secondary"
-                  indicatorClassName="bg-theme-500"
                 />
               </div>
             ))}
