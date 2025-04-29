@@ -23,6 +23,16 @@ const Resume = () => {
     setMounted(true);
   }, []);
   
+  const handleDownload = () => {
+    // Create a link to download the resume file
+    const link = document.createElement('a');
+    link.href = '/resume-pranjal-lohia.pdf'; // Make sure to add this PDF to your public folder
+    link.download = 'Pranjal-Lohia-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
   return (
     <>
       <Navbar />
@@ -50,6 +60,7 @@ const Resume = () => {
                 <Button 
                   size="lg" 
                   className="bg-theme-500 hover:bg-theme-600"
+                  onClick={handleDownload}
                 >
                   <Download className="mr-2 h-4 w-4" />
                   Download Resume

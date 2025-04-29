@@ -7,7 +7,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  standalone?: boolean;
+}
+
+export default function ContactSection({ standalone = false }: ContactSectionProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -59,24 +63,26 @@ export default function ContactSection() {
   return (
     <section ref={sectionRef} className="py-16 md:py-24 bg-grid" id="contact">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className={cn(
-            "text-3xl md:text-4xl font-bold font-display",
-            isVisible ? "animate-fade-in" : "opacity-0"
-          )}>
-            Get In <span className="purple-gradient">Touch</span>
-          </h2>
-          <div className={cn(
-            "h-1 w-20 bg-theme-500 mx-auto mt-4",
-            isVisible ? "animate-fade-in" : "opacity-0"
-          )} style={{ animationDelay: '100ms' }}></div>
-          <p className={cn(
-            "mt-4 text-muted-foreground max-w-2xl mx-auto",
-            isVisible ? "animate-fade-in" : "opacity-0"
-          )} style={{ animationDelay: '200ms' }}>
-            Have a question or want to work together? Feel free to contact me anytime!
-          </p>
-        </div>
+        {(standalone || !standalone) && (
+          <div className="text-center mb-16">
+            <h2 className={cn(
+              "text-3xl md:text-4xl font-bold font-display",
+              isVisible ? "animate-fade-in" : "opacity-0"
+            )}>
+              Contact <span className="purple-gradient">Me</span>
+            </h2>
+            <div className={cn(
+              "h-1 w-20 bg-theme-500 mx-auto mt-4",
+              isVisible ? "animate-fade-in" : "opacity-0"
+            )} style={{ animationDelay: '100ms' }}></div>
+            <p className={cn(
+              "mt-4 text-muted-foreground max-w-2xl mx-auto",
+              isVisible ? "animate-fade-in" : "opacity-0"
+            )} style={{ animationDelay: '200ms' }}>
+              Have a question or want to work together? Feel free to contact me anytime!
+            </p>
+          </div>
+        )}
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className={cn(

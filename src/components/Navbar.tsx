@@ -12,9 +12,10 @@ import {
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
+  { label: "About Me", href: "/#about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Internship", href: "/#internship" },
   { label: "Resume", href: "/resume" },
-  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
@@ -61,7 +62,8 @@ export default function Navbar() {
               to={item.href}
               className={cn(
                 "hover-lift px-3 py-2 rounded-md text-sm font-medium",
-                location.pathname === item.href
+                (location.pathname === item.href || 
+                 (location.pathname === "/" && item.href.startsWith("/#")))
                   ? "text-theme-500 font-semibold"
                   : "text-muted-foreground hover:text-foreground"
               )}
@@ -69,14 +71,6 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
-          <Button 
-            variant="default" 
-            size="sm" 
-            className="ml-4 bg-theme-500 hover:bg-theme-600"
-            asChild
-          >
-            <a href="/contact">Get In Touch</a>
-          </Button>
         </nav>
         
         {/* Mobile Navigation */}
@@ -95,7 +89,8 @@ export default function Navbar() {
                     to={item.href}
                     className={cn(
                       "px-3 py-2 rounded-md text-base font-medium hover:bg-muted",
-                      location.pathname === item.href
+                      (location.pathname === item.href || 
+                       (location.pathname === "/" && item.href.startsWith("/#")))
                         ? "text-theme-500 font-semibold"
                         : "text-muted-foreground hover:text-foreground"
                     )}
@@ -103,14 +98,6 @@ export default function Navbar() {
                     {item.label}
                   </Link>
                 ))}
-                <Button 
-                  variant="default" 
-                  size="default" 
-                  className="mt-4 bg-theme-500 hover:bg-theme-600"
-                  asChild
-                >
-                  <Link to="/contact">Get In Touch</Link>
-                </Button>
               </nav>
             </SheetContent>
           </Sheet>
