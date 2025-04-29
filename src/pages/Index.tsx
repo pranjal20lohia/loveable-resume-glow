@@ -7,7 +7,6 @@ import About from "@/components/About";
 import ProjectsSection from "@/components/ProjectsSection";
 import InternshipSection from "@/components/InternshipSection";
 import ResumeSection from "@/components/ResumeSection";
-import ContactSection from "@/components/ContactSection";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
@@ -59,7 +58,6 @@ const Index = () => {
         <ProjectsSection />
         <InternshipSection />
         <ResumeSection />
-        <ContactSection />
       </main>
       <Footer />
       <ScrollToTop />
